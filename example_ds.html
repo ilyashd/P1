@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Project Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+        }
+        section {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .chart {
+            margin-top: 30px;
+            text-align: center;
+        }
+        canvas {
+            max-width: 100%;
+        }
+        .model-output {
+            background-color: #f2f2f2;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 5px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Data Science Project: Predicting House Prices</h1>
+</header>
+
+<section>
+    <h2>Project Overview</h2>
+    <p>This project focuses on predicting house prices using various features such as the number of rooms, location, and size of the house. We use machine learning techniques to model the relationship between these features and the final price of the house.</p>
+</section>
+
+<section>
+    <h2>Dataset Preview</h2>
+    <table>
+        <tr>
+            <th>House ID</th>
+            <th>Number of Rooms</th>
+            <th>Size (sqft)</th>
+            <th>Location</th>
+            <th>Price ($)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>3</td>
+            <td>1500</td>
+            <td>New York</td>
+            <td>850,000</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>4</td>
+            <td>2000</td>
+            <td>San Francisco</td>
+            <td>1,200,000</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2</td>
+            <td>1200</td>
+            <td>Chicago</td>
+            <td>500,000</td>
+        </tr>
+    </table>
+</section>
+
+<section class="chart">
+    <h2>Data Visualization</h2>
+    <canvas id="myChart" width="400" height="200"></canvas>
+</section>
+
+<section>
+    <h2>Model Prediction Output</h2>
+    <div class="model-output">
+        <strong>Input:</strong> 3 rooms, 1500 sqft, New York<br>
+        <strong>Predicted Price:</strong> $830,000
+    </div>
+</section>
+
+<!-- Add a script for the chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['House 1', 'House 2', 'House 3'],
+            datasets: [{
+                label: 'Price in $',
+                data: [850000, 1200000, 500000],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
